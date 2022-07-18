@@ -219,9 +219,8 @@ footer a {
     max-width: 60%;
   }
 
-  nav ul li {
-    /* display: none; */
-    display: block;
+  .list-menu {
+    display: none;
   }
 
   #menu {
