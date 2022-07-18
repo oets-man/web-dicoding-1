@@ -99,13 +99,15 @@
           <img src="assets/images/banner.png" alt="" />
         </div>
         <nav>
-          <div id="menu"> <i class="bi bi-list-ul"></i></div>
+          <div id="menu" onclick="hideShow()">
+            <i class="bi bi-list-ul"></i>
+          </div>
           <ul>
-            <li><a href="#article1">Imam 1</a></li>
-            <li><a href="#article2">Imam 2</a></li>
-            <li><a href="#article3">Imam 3</a></li>
-            <li><a href="#article4">Imam 4</a></li>
-            <li><a href="#about">About</a></li>
+            <li class="list-menu" id="a"><a href="#article1">Imam 1</a></li>
+            <li class="list-menu"><a href="#article2">Imam 2</a></li>
+            <li class="list-menu"><a href="#article3">Imam 3</a></li>
+            <li class="list-menu"><a href="#article4">Imam 4</a></li>
+            <li class="list-menu"><a href="#about">About</a></li>
           </ul>
         </nav>
       </header>
@@ -1227,5 +1229,19 @@
       </main>
       <footer>by <a href="https://fb.me/idsantri.page">Ula</a></footer>
     </div>
+
+    <script>
+      function hideShow() {
+        let elements = document.querySelectorAll(".list-menu");
+        // using forEach loop
+        elements.forEach((element) => {
+          if (element.style.display == "none") {
+            element.style.display = "block";
+          } else {
+            element.style.display = "none";
+          }
+        });
+      }
+    </script>
   </body>
 </html>
