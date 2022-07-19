@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
   color: #333;
+
+  /* js saja */
+  /* scroll-behavior: smooth; */
 }
 @import url("https://fonts.googleapis.com/css2?family=Montserrat");
 
@@ -39,15 +42,13 @@ nav ul li a {
 nav ul {
   margin-block: 0em;
   border: 0;
-  background-color: azure;
 }
-nav ul:hover {
-  background-color: #eee;
-}
+
 nav {
   position: sticky;
   top: 0;
   padding: 20px;
+  background-color: azure;
 }
 header {
   display: inline;
@@ -88,6 +89,7 @@ h3,
   /* margin-top: 20px; */
   margin-bottom: 20px;
   background-color: ivory;
+  overflow-x: hidden;
 }
 
 article {
@@ -221,10 +223,14 @@ footer a {
 
   .list-menu {
     display: none;
+    margin: 20px 0;
   }
 
   #menu {
     display: block;
+  }
+  .list-menu::after {
+    display: none;
   }
 }
 

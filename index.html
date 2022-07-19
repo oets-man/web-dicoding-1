@@ -102,8 +102,8 @@
           <div id="menu" onclick="hideShow()">
             <i class="bi bi-list-ul"></i>
           </div>
-          <ul>
-            <li class="list-menu" id="a"><a href="#article1">Imam 1</a></li>
+          <ul onclick="hide()">
+            <li class="list-menu"><a href="#article1">Imam 1</a></li>
             <li class="list-menu"><a href="#article2">Imam 2</a></li>
             <li class="list-menu"><a href="#article3">Imam 3</a></li>
             <li class="list-menu"><a href="#article4">Imam 4</a></li>
@@ -1208,7 +1208,7 @@
                 untuk terus belajar tidak pupus. Dengan dukungan dan bimbingan
                 dari suaminya, dia terus mengembangkan diri.
               </p>
-              <p>Kontak:<br />darajatull.ula@gmail.com</p>
+              <p>Kontak:<br />darajatull.ula [at] gmail.com</p>
             </div>
             <hr style="margin: 20px; color: darkgrey" />
             <section>
@@ -1227,10 +1227,31 @@
           </div>
         </aside>
       </main>
-      <footer>by <a href="https://fb.me/idsantri.page">Ula</a></footer>
+      <footer id="o">by <a href="https://fb.me/idsantri.page">Ula</a></footer>
     </div>
 
     <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+          mantul();
+        });
+      });
+
+      function mantul() {
+        setTimeout(function () {
+          var y = window.pageYOffset || document.documentElement.scrollTop;
+          if (window.innerWidth < 800) {
+            window.scrollTo({ top: y - 400, behavior: "smooth" });
+          } else {
+            window.scrollTo({ top: y - 200, behavior: "smooth" });
+          }
+        }, 500);
+      }
+
       function hideShow() {
         let elements = document.querySelectorAll(".list-menu");
         // using forEach loop
@@ -1238,6 +1259,15 @@
           if (element.style.display == "none") {
             element.style.display = "block";
           } else {
+            element.style.display = "none";
+          }
+        });
+      }
+
+      function hide() {
+        let elements = document.querySelectorAll(".list-menu");
+        elements.forEach((element) => {
+          if (element.style.display == "block") {
             element.style.display = "none";
           }
         });
